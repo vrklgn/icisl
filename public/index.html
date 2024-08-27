@@ -10,7 +10,7 @@
   <div id="content">
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('http://localhost:8080/fetch-feed')
+        fetch('/fetch-feed')
             .then(response => response.text())
             .then(data => {
                 console.log(data);
