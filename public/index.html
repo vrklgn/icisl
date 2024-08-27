@@ -1,0 +1,36 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+  <div id="header">
+    <p>Is Corporate IT still living?</p>
+  <div id="content">
+        <script>
+    // START GENAI@CHATGPT4
+    document.addEventListener("DOMContentLoaded", function() {
+        const url = "https://share.garmin.com/Feed/Share/kebnekaise";
+
+        fetch(url)
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                console.log(data);
+                // Your parsed XML data is here, you can manipulate and display it in your HTML page
+                // This example just logs it to the console
+                // For example, to display it in a div with id 'content':
+                document.getElementById('content').textContent = new XMLSerializer().serializeToString(data);
+            })
+    });
+    // END GENAI@CHATGPT4
+    </script>
+    <p>TEST</p>
+  </div>
+  <div id="status">
+    <p>YES, FOR NOW...</p>
+  </div>
+  </div>
+</html>
