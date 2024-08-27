@@ -30,8 +30,5 @@ body {
 	font-size: 60px;
 	 justify-content: center;
     align-items: center;
-    width: 100%;               /* Ensure full width */
-    height: 100%;              /* Optional: Adjust if you need specific height */
-    display: flex;
 	
 	}
