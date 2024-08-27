@@ -8,15 +8,20 @@
   <div id="header">
     <p>Is Corporate IT still living?</p>
   <div id="content">
+    <p id="latitude"></p>
+    <p id="longitude"></p>
+    <p id="time"></p>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         fetch('/fetch-feed')
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
                 console.log(data);
                 // Your data is here, you can display it in your HTML page
-                // This example just logs it to the console and display it in a div with id 'content':
-                document.getElementById('content').textContent = data;
+                // This example just logs it to the console and display it in <p> tags:
+                document.getElementById('latitude').textContent = 'Latitude: ' + data.lat;
+                document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
+                document.getElementById('time').textContent = 'Time: ' + data.time;
             })
             .catch((error) => {
                 console.error('Error:', error);
