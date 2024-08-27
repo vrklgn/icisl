@@ -29,11 +29,15 @@ app.get('/fetch-feed', async (req, res) => {
                 return res.status(500).send(err.toString());
             }
 
-            // Fetch the <Name> within <Document>
-            const name = result.kml.Document[0].name[0];
+            // Fetch the <Placemark> within <Folder>
+            const placemark = result.kml.Document[0].Folder[0].Placemark[0];
+            const extendedData = placemark.ExtendedData[0].Data;
+            const lat = extendedData.find(data => data['$'].name === 'Latitude').value[0];
+            const long = extendedData.find(data => data['$'].name === 'Longitude').value[0];
+            const time = extendedData.find(data => data['$'].name === 'Time').value[0];
 
-            // Send the name as the response
-            res.send(name);
+            // Send the values as the response
+            res.send({ lat, long, time });
         });
     } catch (error) {
         res.status(500).send(error.toString());
