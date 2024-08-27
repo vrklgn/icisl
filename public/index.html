@@ -8,7 +8,20 @@
   <div id="header">
     <p>Is Corporate IT still living?</p>
   <div id="content">
-        <script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('http://localhost:8080/fetch-feed')
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                // Your data is here, you can display it in your HTML page
+                // This example just logs it to the console and display it in a div with id 'content':
+                document.getElementById('content').textContent = data;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    });
     </script>
     <p>TEST</p>
   </div>
