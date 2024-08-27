@@ -10,18 +10,50 @@
   <div id="content">
     <p id="latitude"></p>
     <p id="longitude"></p>
+    <p id="result"></p>
     <p id="time"></p>
     <script>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch XML Feed</title>
+</head>
+<body>
+    <h1>XML Feed Data:</h1>
+    <p id="latitude"></p>
+    <p id="longitude"></p>
+    <p id="time"></p>
+    <p id="result"></p>
+
+    <script>
+    // START GENAI@CHATGPT4
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('/fetch-feed')
+        fetch('http://localhost:8080/fetch-feed')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                // Your data is here, you can display it in your HTML page
-                // This example just logs it to the console and display it in <p> tags:
+
                 document.getElementById('latitude').textContent = 'Latitude: ' + data.lat;
                 document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
                 document.getElementById('time').textContent = 'Time: ' + data.time;
+                
+                // Convert the time string to a Date object
+                const feedTime = new Date(data.time);
+                
+                // Get the current date and time
+                const now = new Date();
+
+                // Calculate the difference in milliseconds
+                const diff = now - feedTime;
+
+                // Convert the difference to hours
+                const hours = diff / 1000 / 60 / 60;
+
+                // Determine the result
+                const result = hours <= 4 ? 'YES' : 'Maybe';
+
+                // Display the result
+                document.getElementById('result').textContent = 'Result: ' + result;
             })
             .catch((error) => {
                 console.error('Error:', error);
