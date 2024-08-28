@@ -57,8 +57,8 @@
                 // Display the result
                 document.getElementById('result').textContent = result;
 
-                // Create the image URL using the latitude and longitude values
-                const imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${data.lat},${data.long}&zoom=12&maptype=terrain&size=800x600&markers=size:large%7Ccolor:0xFFFF00%7C${data.lat},${data.long}`;
+                // Fetch the image from your server
+                const imageUrl = `/map-image?lat=${data.lat}&long=${data.long}`;
                 
                 // Create an img element
                 const img = document.createElement('img');
@@ -66,6 +66,7 @@
                 
                 // Append the img element to the div with the id "location"
                 document.getElementById('location').appendChild(img);
+
             })
             .catch((error) => {
                 console.error('Error:', error);
