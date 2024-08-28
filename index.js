@@ -3,6 +3,7 @@ var express = require('express');
 var axios = require('axios');
 var xml2js = require('xml2js');
 var app = express();
+console.log(process.env.mapkey);
 
 // Serve static files from the "public" directory
 app.use(express.static('public'));
