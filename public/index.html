@@ -23,7 +23,6 @@
     <p id="longitude"></p>
 
     <script>
-    // START GENAI@CHATGPT4
     document.addEventListener("DOMContentLoaded", function() {
         fetch('/fetch-feed')
             .then(response => response.json())
@@ -40,7 +39,7 @@
                 // Convert the Date object to ISO 8601 format
                 const isoTime = feedTime.toISOString();
                 
-                document.getElementById('time').textContent = 'Time: ' + isoTime;
+                document.getElementById('time').textContent = isoTime;
                 
                 // Get the current date and time
                 const now = new Date();
@@ -55,13 +54,12 @@
                 const result = hours <= 4 ? 'YES' : 'Maybe';
 
                 // Display the result
-                document.getElementById('result').textContent = 'Result: ' + result;
+                document.getElementById('result').textContent = result;
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
     });
-    // END GENAI@CHATGPT4
     </script>
   </div>
   </div>
