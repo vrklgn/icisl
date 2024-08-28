@@ -9,11 +9,37 @@ body {
 	font-weight: 400;
 	font-style: normal;
 }
+
+h1 {
+	font-size: 3em;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+h3 {
+	font-size: 1em;
+	margin: 5px;
+}
+#result {
+	font-size: 1.5em;
+	margin: 30px;
+}
+
+#time {
+	font-size: 0.8em;
+	margin: 10px;
+}
+
+#cordinates {
+	font-size: 1.2em;
+}
+
 #header {
 	text-align: center;
 	color: #FFF;
 	opacity: 1;
-	font-size: 60px;
+	font-size: 3em;
     width: 100%;               /* Ensure full width */
     height: 100%;              /* Optional: Adjust if you need specific height */
 	}
@@ -25,3 +51,7 @@ body {
 	font-size: 60px;
 	
 	}
+
+#location img {
+	border-radius: 800px;
+}
