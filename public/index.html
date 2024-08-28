@@ -34,8 +34,13 @@
                 document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
                 document.getElementById('time').textContent = data.time;
                 
-                // Convert the time string to a Date object
+                 // Convert the time string to a Date object
                 const feedTime = new Date(data.time);
+                
+                // Convert the Date object to ISO 8601 format
+                const isoTime = feedTime.toISOString();
+                
+                document.getElementById('time').textContent = 'Time: ' + isoTime;
                 
                 // Get the current date and time
                 const now = new Date();
@@ -50,7 +55,7 @@
                 const result = hours <= 4 ? 'YES' : 'Maybe';
 
                 // Display the result
-                document.getElementById('result').textContent = result;
+                document.getElementById('result').textContent = 'Result: ' + result;
             })
             .catch((error) => {
                 console.error('Error:', error);
