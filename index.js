@@ -18,13 +18,18 @@ const fetchXMLFeed = async () => {
     }
 }
 
-app.get('/map-image', (req, res) => {
+app.get('/map-image', async (req, res) => {
     const { lat, long } = req.query;
-    const mapurl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=12&maptype=terrain&size=800x600&markers=size:large%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
-    console.log(mapurl)
+    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=12&maptype=terrain&size=800x600&markers=size:large%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
 
-    // Pipe the request to the response. This will stream the image data to the client.
-    request(mapurl).pipe(res);
+    try {
+        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        const base64 = Buffer.from(response.data, 'binary').toString('base64');
+        res.send({ image: `data:${response.headers['content-type']};base64,${base64}` });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'An error occurred while fetching the image.' });
+    }
 });
 
 app.get('/fetch-feed', async (req, res) => {
