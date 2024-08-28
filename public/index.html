@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const feedTime = new Date(data.time);
             
             // Convert the Date object to ISO 8601 format
-            const isoTime = feedTime+2.toISOString();
+            const isoTime = feedTime.toISOString();
             
             document.getElementById('time').textContent = isoTime;
             
