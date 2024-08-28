@@ -3,7 +3,6 @@ var express = require('express');
 var axios = require('axios');
 var xml2js = require('xml2js');
 var app = express();
-console.log(process.env.mapkey);
 
 // Serve static files from the "public" directory
 app.use(express.static('public'));
@@ -18,6 +17,14 @@ const fetchXMLFeed = async () => {
         throw error;
     }
 }
+
+app.get('/map-image', (req, res) => {
+    const { lat, long } = req.query;
+    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=12&maptype=terrain&size=800x600&markers=size:large%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
+
+    // Pipe the request to the response. This will stream the image data to the client.
+    request(url).pipe(res);
+});
 
 app.get('/fetch-feed', async (req, res) => {
     try {
