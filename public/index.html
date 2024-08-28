@@ -19,6 +19,7 @@
     <p id="result"></p>
     <p id="latitude"></p>
     <p id="longitude"></p>
+  <p>Last Seen</p>
     <p id="time"></p>
 
     <script>
@@ -31,7 +32,7 @@
 
                 document.getElementById('latitude').textContent = 'Latitude: ' + data.lat;
                 document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
-                document.getElementById('time').textContent = 'Time: ' + data.time;
+                document.getElementById('time').textContent = data.time;
                 
                 // Convert the time string to a Date object
                 const feedTime = new Date(data.time);
