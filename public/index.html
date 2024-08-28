@@ -23,41 +23,42 @@
     <p id="latitude"></p>
     <p id="longitude"></p>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('/fetch-feed')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+   <script>
+// START GENAI@CHATGPT4
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/fetch-feed')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
 
-                document.getElementById('latitude').textContent = 'Latitude: ' + data.lat;
-                document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
-                document.getElementById('time').textContent = data.time;
-                
-                 // Convert the time string to a Date object
-                const feedTime = new Date(data.time);
-                
-                // Convert the Date object to ISO 8601 format
-                const isoTime = feedTime.toISOString();
-                
-                document.getElementById('time').textContent = isoTime;
-                
-                // Get the current date and time
-                const now = new Date();
+            document.getElementById('latitude').textContent = 'Latitude: ' + data.lat;
+            document.getElementById('longitude').textContent = 'Longitude: ' + data.long;
+            document.getElementById('time').textContent = data.time;
+            
+             // Convert the time string to a Date object
+            const feedTime = new Date(data.time);
+            
+            // Convert the Date object to ISO 8601 format
+            const isoTime = feedTime.toISOString();
+            
+            document.getElementById('time').textContent = isoTime;
+            
+            // Get the current date and time
+            const now = new Date();
 
-                // Calculate the difference in milliseconds
-                const diff = now - feedTime;
+            // Calculate the difference in milliseconds
+            const diff = now - feedTime;
 
-                // Convert the difference to hours
-                const hours = diff / 1000 / 60 / 60;
+            // Convert the difference to hours
+            const hours = diff / 1000 / 60 / 60;
 
-                // Determine the result
-                const result = hours <= 4 ? 'YES' : 'Maybe';
+            // Determine the result
+            const result = hours <= 4 ? 'YES' : 'Maybe';
 
-                // Display the result
-                document.getElementById('result').textContent = result;
+            // Display the result
+            document.getElementById('result').textContent = result;
 
-  // Fetch the image from your server
+            // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
                 .then(response => response.json())
                 .then(imageData => {
@@ -72,7 +73,9 @@
         .catch((error) => {
             console.error('Error:', error);
         });
-    </script>
+});
+// END GENAI@CHATGPT4
+</script>
   </div>
   </div>
   </body>
