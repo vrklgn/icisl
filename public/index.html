@@ -57,21 +57,21 @@
                 // Display the result
                 document.getElementById('result').textContent = result;
 
-                // Fetch the image from your server
-                const imageUrl = `/map-image?lat=${data.lat}&long=${data.long}`;
-                
-                // Create an img element
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                
-                // Append the img element to the div with the id "location"
-                document.getElementById('location').appendChild(img);
-
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    });
+  // Fetch the image from your server
+            fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
+                .then(response => response.json())
+                .then(imageData => {
+                    // Create an img element
+                    const img = document.createElement('img');
+                    img.src = imageData.image;
+                    
+                    // Append the img element to the div with the id "location"
+                    document.getElementById('location').appendChild(img);
+                }).catch(error => console.error('Error:', error));
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     </script>
   </div>
   </div>
