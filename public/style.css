@@ -5,12 +5,10 @@ body {
 	font-family: "Jersey 10", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+background-color: #4ca546;
 opacity: 1;
-
-background-color: #3eb95d;
-opacity: 1;
-background: radial-gradient(circle, transparent 20%, #3eb95d 20%, #3eb95d 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #3eb95d 20%, #3eb95d 80%, transparent 80%, transparent) 55px 55px, linear-gradient(#53d03d 4.4px, transparent 4.4px) 0 -2.2px, linear-gradient(90deg, #53d03d 4.4px, #3eb95d 4.4px) -2.2px 0;
-background-size: 110px 110px, 110px 110px, 55px 55px, 55px 55px;
+background-image: radial-gradient(circle at center center, #70cf83, #4ca546), repeating-radial-gradient(circle at center center, #70cf83, #70cf83, 40px, transparent 80px, transparent 40px);
+background-blend-mode: multiply;
 }
 
 h1 {
