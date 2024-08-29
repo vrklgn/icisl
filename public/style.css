@@ -2,12 +2,14 @@ body {
 	font-optical-sizing: auto;
 	font-size: 16px;
 	color: #FFF;
-	background-color: #1010db;
-	background-image: radial-gradient(#a0bdf7 1.1px, #1010db 1.1px);
-	background-size: 22px 22px;
 	font-family: "Jersey 10", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	background-color: #1914a9;
+opacity: 1;
+background-image:  radial-gradient(#c17a7a 1.7000000000000002px, transparent 1.7000000000000002px), radial-gradient(#c17a7a 1.7000000000000002px, #1914a9 1.7000000000000002px);
+background-size: 68px 68px;
+background-position: 0 0,34px 34px;
 }
 
 h1 {
@@ -23,7 +25,8 @@ h3 {
 }
 #result {
 	font-size: 1.5em;
-	margin: 30px;
+	margin: 10px;
+	text-transform: uppercase;
 }
 
 #time {
@@ -32,13 +35,14 @@ h3 {
 }
 
 #cordinates {
-	font-size: 1.2em;
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom:0px;
 }
 
 #header {
 	text-align: center;
 	color: #FFF;
-	opacity: 1;
 	font-size: 3em;
     width: 100%;               /* Ensure full width */
     height: 100%;              /* Optional: Adjust if you need specific height */
@@ -47,11 +51,19 @@ h3 {
 #status {
 	text-align: center;
 	color: #FFF;
-	opacity: 1;
 	font-size: 60px;
-	
 	}
+
+#location {
+
+}
+
 
 #location img {
 	border-radius: 800px;
+	max-height:500px;
+    max-width:500px;
+    height:auto;
+    width:auto;
+	margin: 5px;
 }

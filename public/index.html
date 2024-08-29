@@ -17,7 +17,6 @@
     <p id="result"></p>
   <div id="location"></div>
   <p id="cordinates"></p>
-    <h3>Last Seen</h3>
     <p id="time"></p>
     
 
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             console.log(data);
 
-            document.getElementById('cordinates').textContent = data.lat+" , "+data.long;
+            document.getElementById('cordinates').textContent = "@ " + data.lat+" , "+data.long;
             document.getElementById('time').textContent = data.time;
             
              // Convert the time string to a Date object

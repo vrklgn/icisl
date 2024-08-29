@@ -20,7 +20,7 @@ const fetchXMLFeed = async () => {
 
 app.get('/map-image', async (req, res) => {
     const { lat, long } = req.query;
-    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=14&maptype=hybrid&size=800x800&markers=size:large%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
+    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=14&maptype=hybrid&size=600x600&markers=size:large%7Cscale:2%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
 
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
