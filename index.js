@@ -20,8 +20,8 @@ const fetchXMLFeed = async () => {
 
 app.get('/map-image', async (req, res) => {
     const { lat, long } = req.query;
-    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=14&maptype=hybrid&size=600x600&markers=size:large%7Cscale:2%7Ccolor:0xFFFF00%7C${lat},${long}&key=${process.env.mapkey}`;
-
+    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=14&maptype=hybrid&size=600x600&markers=icon:http://starfish-app-owgvm.ondigitalocean.app/pin.png%7C${lat},${long}&key=${process.env.mapkey}`;
+    console.log(url)
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         const base64 = Buffer.from(response.data, 'binary').toString('base64');
