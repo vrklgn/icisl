@@ -5,9 +5,9 @@ body {
 	font-family: "Jersey 10", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-background-color: #e3e3f6;
+background-color: #9393a8;
 opacity: 1;
-background-image: radial-gradient(circle at center center, #bbbbbb, #e3e3f6), repeating-radial-gradient(circle at center center, #bbbbbb, #bbbbbb, 40px, transparent 80px, transparent 40px);
+background-image: radial-gradient(circle at center center, #bbbbbb, #9393a8), repeating-radial-gradient(circle at center center, #bbbbbb, #bbbbbb, 40px, transparent 80px, transparent 40px);
 background-blend-mode: multiply;
 }
 
