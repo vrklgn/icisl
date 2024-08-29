@@ -18,10 +18,28 @@
   <div id="location"></div>
   <p id="cordinates"></p>
     <p id="time"></p>
+    <p id="distance"></p>
     
 
    <script>
 // START GENAI@CHATGPT4
+
+        function haversine(lat1, lon1, lat2, lon2) {
+        function toRad(x) {
+            return x * Math.PI / 180;
+        }
+
+        var R = 6371; // km
+        var dLat = toRad(lat2 - lat1);
+        var dLon = toRad(lon2 - lon1);
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var d = R * c;
+        return d;
+    }
+
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/fetch-feed')
         .then(response => response.json())
@@ -54,6 +72,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Display the result
             document.getElementById('result').textContent = result;
+
+             const fixedLat = 67.90046969145193;
+            const fixedLong = 18.51645419943535;
+            const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
+            document.getElementById('distance').textContent = 'Distance Left: ' + distance.toFixed(2) + ' km';
 
             // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
