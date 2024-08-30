@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
              const fixedLat = 67.90046969145193;
             const fixedLong = 18.51645419943535;
             const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
-            document.getElementById('distance').textContent = 'Distance Left: ' + distance.toFixed(2) + ' km';
+            document.getElementById('distance').textContent = 'Distance to Kebnekaise (Southern Peak): ' + distance.toFixed(2) + ' km';
 
             // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
