@@ -5,10 +5,10 @@ body {
     font-family: "Jersey 10", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #9393a8;
-    opacity: 1;
-    background-image: radial-gradient(circle at center center, #bbbbbb, #9393a8), repeating-radial-gradient(circle at center center, #bbbbbb, #bbbbbb, 40px, transparent 80px, transparent 40px);
-    background-blend-mode: multiply;
+background-color: #1a276e;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent) 15px 15px, linear-gradient(#ffa65d 1.2000000000000002px, transparent 1.2000000000000002px) 0 -0.6000000000000001px, linear-gradient(90deg, #ffa65d 1.2000000000000002px, #1a276e 1.2000000000000002px) -0.6000000000000001px 0;
+background-size: 30px 30px, 30px 30px, 15px 15px, 15px 15px;
 
     /* Flexbox to center content */
     display: flex;
