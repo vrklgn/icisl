@@ -80,16 +80,25 @@ document.addEventListener("DOMContentLoaded", function() {
             const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
             document.getElementById('distance').textContent = 'Distance to Kebnekaise (Southern Peak): ' + distance.toFixed(2) + ' km';
 
-            // Fetch the image from your server
+             // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
                 .then(response => response.json())
                 .then(imageData => {
+                    // Create an anchor element
+                    const link = document.createElement('a');
+                    link.href = 'https://eur-share.explore.garmin.com/kebnekaise';
+                    link.target = '_blank'; // Open link in a new tab
+
                     // Create an img element
                     const img = document.createElement('img');
                     img.src = imageData.image;
-                    
-                    // Append the img element to the div with the id "location"
-                    document.getElementById('location').appendChild(img);
+                    img.alt = 'Map Image';
+
+                    // Append the img to the anchor
+                    link.appendChild(img);
+
+                    // Append the anchor to the div with the id "location"
+                    document.getElementById('location').appendChild(link);
                 }).catch(error => console.error('Error:', error));
         })
         .catch((error) => {
@@ -98,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // END GENAI@CHATGPT4
 </script>
+
   </div>
   </div>
   </body>
