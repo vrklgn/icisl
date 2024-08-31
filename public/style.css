@@ -7,8 +7,8 @@ body {
     font-style: normal;
 background-color: #1a276e;
 opacity: 1;
-background: radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent) 15px 15px, linear-gradient(#ffa65d 1.2000000000000002px, transparent 1.2000000000000002px) 0 -0.6000000000000001px, linear-gradient(90deg, #ffa65d 1.2000000000000002px, #1a276e 1.2000000000000002px) -0.6000000000000001px 0;
-background-size: 30px 30px, 30px 30px, 15px 15px, 15px 15px;
+background: radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent) 35px 35px, linear-gradient(#ffa65d 2.8000000000000003px, transparent 2.8000000000000003px) 0 -1.4000000000000001px, linear-gradient(90deg, #ffa65d 2.8000000000000003px, #1a276e 2.8000000000000003px) -1.4000000000000001px 0;
+background-size: 70px 70px, 70px 70px, 35px 35px, 35px 35px;
 
     /* Flexbox to center content */
     display: flex;
