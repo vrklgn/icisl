@@ -5,10 +5,12 @@ body {
     font-family: "Jersey 10", sans-serif;
     font-weight: 400;
     font-style: normal;
-background-color: #1a276e;
-opacity: 1;
-background: radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a276e 20%, #1a276e 80%, transparent 80%, transparent) 35px 35px, linear-gradient(#ffa65d 2.8000000000000003px, transparent 2.8000000000000003px) 0 -1.4000000000000001px, linear-gradient(90deg, #ffa65d 2.8000000000000003px, #1a276e 2.8000000000000003px) -1.4000000000000001px 0;
-background-size: 70px 70px, 70px 70px, 35px 35px, 35px 35px;
+background:
+      conic-gradient(from 135deg,#7676c5 90deg,#0000 0) 40px calc(40px/2),
+      conic-gradient(from 135deg,#191c77 90deg,#0000 0),
+      conic-gradient(from 135deg at 50% 0,#7676c5 90deg,#0000 0) #191c77;
+background-size: 80px 40px;
+
 
     /* Flexbox to center content */
     display: flex;
