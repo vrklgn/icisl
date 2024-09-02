@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
             // Display the result
             document.getElementById('result').textContent = result;
 
-             const fixedLat = 67.90046969145193;
-            const fixedLong = 18.51645419943535;
+             const fixedLat = 67.86668;
+            const fixedLong = 18.626602;
             const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
-            document.getElementById('distance').textContent = 'Distance to Kebnekaise (Southern Peak): ' + distance.toFixed(2) + ' km';
+            document.getElementById('distance').textContent = 'Distance to Kebnekaise Fjällstation Stf: ' + distance.toFixed(2) + ' km';
 
              // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
