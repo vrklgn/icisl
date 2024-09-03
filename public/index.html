@@ -76,10 +76,10 @@ document.addEventListener("DOMContentLoaded", function() {
             // Display the result
             document.getElementById('result').textContent = result;
 
-             const fixedLat = 67.86668;
-            const fixedLong = 18.626602;
+             const fixedLat = 67,85071;
+            const fixedLong = 19,01312;
             const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
-            document.getElementById('distance').textContent = 'Distance to Kebnekaise Fjällstation Stf: ' + distance.toFixed(2) + ' km';
+            document.getElementById('distance').textContent = 'Distance to Nikkaluokta: ' + distance.toFixed(2) + ' km';
 
              // Fetch the image from your server
             fetch(`/map-image?lat=${data.lat}&long=${data.long}`)
