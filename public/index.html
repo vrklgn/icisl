@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // Display the result
             document.getElementById('result').textContent = result;
 
-             const fixedLat = 67,85071;
-            const fixedLong = 19,01312;
+             const fixedLat = 67.85071;
+            const fixedLong = 19.01312;
             const distance = haversine(data.lat, data.long, fixedLat, fixedLong);
             document.getElementById('distance').textContent = 'Distance to Nikkaluokta: ' + distance.toFixed(2) + ' km';
 
