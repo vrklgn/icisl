@@ -1,86 +1,33 @@
+/* public/styles.css */
+
 body {
-    font-optical-sizing: auto;
-    font-size: 16px;
-    color: #FFF;
-    font-family: "Jersey 10", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-background:
-      conic-gradient(from 135deg,#7676c5 90deg,#0000 0) 40px calc(40px/2),
-      conic-gradient(from 135deg,#191c77 90deg,#0000 0),
-      conic-gradient(from 135deg at 50% 0,#7676c5 90deg,#0000 0) #191c77;
-background-size: 80px 40px;
-
-
-    /* Flexbox to center content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full height of the viewport */
-    margin: 0;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
-#header, #content, #container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center; /* Center text inside */
+.team {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
 }
 
-h1 {
-	font-size: 3em;
-	margin: 0px;
-	padding: 0px;
+/* Distinct colors for each team's section */
+.team-a {
+  background-color: #ff5733; /* Bright Orange-Red */
 }
 
-
-h3 {
-	font-size: 1em;
-	margin: 5px;
-}
-#result {
-	font-size: 1.5em;
-	margin: 10px;
-	text-transform: uppercase;
+.team-b {
+  background-color: #33c3ff; /* Bright Sky Blue */
 }
 
-#time {
-	font-size: 0.8em;
-	margin: 10px;
-}
-
-#cordinates {
-	font-size: 1em;
-	margin-top: 10px;
-	margin-bottom:0px;
-}
-
-#header {
-	text-align: center;
-	color: #FFF;
-	font-size: 3em;
-    width: 100%;               /* Ensure full width */
-    height: 100%;              /* Optional: Adjust if you need specific height */
-	}
-
-#status {
-	text-align: center;
-	color: #FFF;
-	font-size: 60px;
-	}
-
-#location {
-
-}
-
-
-#location img {
-	border-radius: 800px;
-	max-height:500px;
-    max-width:500px;
-    height:auto;
-    width:auto;
-	margin: 5px;
+.team-c {
+  background-color: #28a745; /* Bright Green */
 }
