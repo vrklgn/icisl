@@ -1,0 +1,37 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Scores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Current Team Scores</h1>
+  <div class="teams-container">
+    <div class="team">
+      <h2>Team A: <span id="teamA"><%= scores.teamA %></span></h2>
+    </div>
+    <div class="team">
+      <h2>Team B: <span id="teamB"><%= scores.teamB %></span></h2>
+    </div>
+    <div class="team">
+      <h2>Team C: <span id="teamC"><%= scores.teamC %></span></h2>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript for real-time updates -->
+  <script>
+    setInterval(() => {
+      fetch('/scores')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('teamA').innerText = data.teamA;
+          document.getElementById('teamB').innerText = data.teamB;
+          document.getElementById('teamC').innerText = data.teamC;
+        });
+    }, 5000); // Update every 5 seconds
+  </script>
+</body>
+</html>
