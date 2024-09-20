@@ -12,7 +12,7 @@
 
   <!-- Team A -->
   <div class="team-container">
-    <div class="team-name">Team A</div>
+    <div class="team-name">Team A: <span class="score" id="score-teamA"><%= scores.teamA %></span></div>
     <div class="buttons">
       <button class="btn btn-plus" onclick="updateScore('teamA', 1)">+1</button>
       <button class="btn btn-minus" onclick="updateScore('teamA', -1)">-1</button>
@@ -21,7 +21,7 @@
 
   <!-- Team B -->
   <div class="team-container">
-    <div class="team-name">Team B</div>
+    <div class="team-name">Team B: <span class="score" id="score-teamB"><%= scores.teamB %></span></div>
     <div class="buttons">
       <button class="btn btn-plus" onclick="updateScore('teamB', 1)">+1</button>
       <button class="btn btn-minus" onclick="updateScore('teamB', -1)">-1</button>
@@ -30,7 +30,7 @@
 
   <!-- Team C -->
   <div class="team-container">
-    <div class="team-name">Team C</div>
+    <div class="team-name">Team C: <span class="score" id="score-teamC"><%= scores.teamC %></span></div>
     <div class="buttons">
       <button class="btn btn-plus" onclick="updateScore('teamC', 1)">+1</button>
       <button class="btn btn-minus" onclick="updateScore('teamC', -1)">-1</button>
@@ -50,7 +50,8 @@
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          console.log(`Score updated: ${team} new score is ${data.newScore}`);
+          // Update the score displayed on the admin page
+          document.getElementById(`score-${team}`).innerText = data.newScore;
         } else {
           alert('Error updating score');
         }
@@ -60,6 +61,21 @@
         alert('An error occurred while updating the score.');
       });
     }
+
+    // Optional: Function to fetch and refresh current scores periodically
+    function fetchScores() {
+      fetch('/scores')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('score-teamA').innerText = data.teamA;
+          document.getElementById('score-teamB').innerText = data.teamB;
+          document.getElementById('score-teamC').innerText = data.teamC;
+        })
+        .catch(error => console.error('Error fetching scores:', error));
+    }
+
+    // Optional: Refresh scores every 10 seconds
+    setInterval(fetchScores, 10000);
   </script>
 </body>
 </html>
