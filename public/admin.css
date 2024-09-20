@@ -1,50 +1,13 @@
-/* public/styles.css */
 
+/* General styles for the body */
 body {
-  margin: 0;
-  display: flex;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-.team {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
 }
-
-.team-name {
-  font-size: 2em;
-  margin-bottom: 10px; /* Space between the name and the score */
-  font-weight: bold;
-}
-
-.team-score {
-  font-size: 3em;
-  font-weight: bold;
-}
-
-/* Distinct colors for each team's section */
-.team-a {
-  background-color: #ff5733; /* Bright Orange-Red */
-}
-
-.team-b {
-  background-color: #33c3ff; /* Bright Sky Blue */
-}
-
-.team-c {
-  background-color: #28a745; /* Bright Green */
-}
-/* public/styles.css */
-
-/* General styles for the body */
-
 
 h1 {
   margin-bottom: 20px;
@@ -55,7 +18,14 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Adds space between each team's section */
+  width: 100%; /* Ensure full width */
+  max-width: 600px; /* Optional max-width for better alignment */
+  padding: 10px;
+  border: 1px solid #ddd; /* Optional border for better distinction */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  background-color: #f9f9f9; /* Light background for contrast */
 }
 
 /* Team name styling */
@@ -95,4 +65,10 @@ h1 {
 /* Hover effect for buttons */
 .btn:hover {
   opacity: 0.8;
+}
+
+/* Score styling */
+.score {
+  font-size: 1.5em;
+  margin-left: 5px;
 }
