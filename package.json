@@ -1,17 +1,17 @@
 {
-  "name": "test",
+  "name": "quiz-scoreboard",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A simple application to display and update quiz scores for 3 teams.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "axios": "^1.7.5",
+    "ejs": "^3.1.9",
     "express": "^4.19.2",
-    "xml2js": "^0.6.2"
+    "express-basic-auth": "^1.2.0" // Include if using basic authentication
   }
 }
