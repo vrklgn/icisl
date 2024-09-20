@@ -56,6 +56,11 @@ app.post('/update-score', (req, res) => {
   });
 });
 
+// Route to get current scores
+app.get('/scores', (req, res) => {
+  res.json(scores);
+});
+
 // This keeps the server running by listening on port 8080
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
