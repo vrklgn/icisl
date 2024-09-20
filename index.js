@@ -1,63 +1,49 @@
-// START GENAI@CHATGPT4
-var express = require('express');
-var axios = require('axios');
-var xml2js = require('xml2js');
-var app = express();
+// app.js
 
-// Serve static files from the "public" directory
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // To parse JSON bodies
+app.set('view engine', 'ejs');
+
+// Serve static files
 app.use(express.static('public'));
 
-const fetchXMLFeed = async () => {
-    const url = "https://share.garmin.com/Feed/Share/kebnekaise";
-    try {
-        const response = await axios.get(url);
-        return response.data;
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
+// Load scores from a JSON file
+let scores = require('./scores.json');
+
+// Existing routes...
+
+// New route to handle score updates
+app.post('/update-score', (req, res) => {
+  const { team, delta } = req.body;
+
+  // Validate input
+  if (!['teamA', 'teamB', 'teamC'].includes(team) || isNaN(delta)) {
+    return res.status(400).json({ success: false, message: 'Invalid input' });
+  }
+
+  // Update the score
+  scores[team] += Number(delta);
+
+  // Prevent negative scores (optional)
+  if (scores[team] < 0) {
+    scores[team] = 0;
+  }
+
+  // Save the updated scores to the JSON file
+  fs.writeFile('./scores.json', JSON.stringify(scores, null, 2), (err) => {
+    if (err) {
+      console.error('Error writing to scores.json:', err);
+      return res.status(500).json({ success: false, message: 'Failed to update score' });
     }
-}
-
-app.get('/map-image', async (req, res) => {
-    const { lat, long } = req.query;
-    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=14&maptype=hybrid&size=600x600&markers=icon:http://starfish-app-owgvm.ondigitalocean.app/IMG_3952.png%7C${lat},${long}&key=${process.env.mapkey}`;
-    console.log(url)
-    try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
-        const base64 = Buffer.from(response.data, 'binary').toString('base64');
-        res.send({ image: `data:${response.headers['content-type']};base64,${base64}` });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ error: 'An error occurred while fetching the image.' });
-    }
-});
-
-app.get('/fetch-feed', async (req, res) => {
-    try {
-        const data = await fetchXMLFeed();
-
-        // Parse the XML data
-        xml2js.parseString(data, (err, result) => {
-            if (err) {
-                console.error('Error:', err);
-                return res.status(500).send(err.toString());
-            }
-
-            // Fetch the <Placemark> within <Folder>
-            const placemark = result.kml.Document[0].Folder[0].Placemark[0];
-            const extendedData = placemark.ExtendedData[0].Data;
-            const lat = extendedData.find(data => data['$'].name === 'Latitude').value[0];
-            const long = extendedData.find(data => data['$'].name === 'Longitude').value[0];
-            const time = extendedData.find(data => data['$'].name === 'Time').value[0];
-
-            // Send the values as the response
-            res.send({ lat, long, time });
-        });
-    } catch (error) {
-        res.status(500).send(error.toString());
-    }
-});
-
-app.listen(8080, function(){
-    console.log('App is listening on port 8080');
+    console.log(`Updated ${team} score to ${scores[team]}`);
+    res.json({ success: true, newScore: scores[team] });
+  });
 });
