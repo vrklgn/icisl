@@ -4,7 +4,8 @@ body {
   margin: 0;
   display: flex;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
   overflow: hidden;
 }
 

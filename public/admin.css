@@ -30,7 +30,7 @@ h1 {
 
 /* Team name styling */
 .team-name {
-  font-size: 2em;
+  font-size: 1em;
   margin-bottom: 10px;
   font-weight: bold;
 }
@@ -43,7 +43,7 @@ h1 {
 
 /* General button styling */
 .btn {
-  padding: 15px 30px;
+  padding: 55px 60px;
   font-size: 1.5em;
   cursor: pointer;
   border: none;
@@ -69,6 +69,17 @@ h1 {
 
 /* Score styling */
 .score {
-  font-size: 1.5em;
-  margin-left: 5px;
+  font-size: 2em;
+}
+
+.team-a {
+  background-color: #FFD166; /* Bright Orange-Red */
+}
+
+.team-b {
+  background-color: #06D6A0; /* Bright Sky Blue */
+}
+
+.team-c {
+  background-color: #ECB6EF; /* Bright Green */
 }
