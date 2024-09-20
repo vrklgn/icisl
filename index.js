@@ -1,26 +1,34 @@
-// app.js
-
+// index.js
 const express = require('express');
-const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080; // Set the server to listen on port 8080
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // To parse JSON bodies
+// Middleware to parse incoming requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Set up view engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files
+// Serve static files from the public folder
 app.use(express.static('public'));
 
 // Load scores from a JSON file
 let scores = require('./scores.json');
 
-// Existing routes...
+// Routes
+app.get('/', (req, res) => {
+  res.render('index', { scores });
+});
 
-// New route to handle score updates
+app.get('/admin', (req, res) => {
+  res.render('admin', { scores });
+});
+
 app.post('/update-score', (req, res) => {
   const { team, delta } = req.body;
 
@@ -32,7 +40,7 @@ app.post('/update-score', (req, res) => {
   // Update the score
   scores[team] += Number(delta);
 
-  // Prevent negative scores (optional)
+  // Prevent negative scores
   if (scores[team] < 0) {
     scores[team] = 0;
   }
@@ -46,4 +54,9 @@ app.post('/update-score', (req, res) => {
     console.log(`Updated ${team} score to ${scores[team]}`);
     res.json({ success: true, newScore: scores[team] });
   });
+});
+
+// This keeps the server running by listening on port 8080
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
