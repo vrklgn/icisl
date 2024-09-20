@@ -8,23 +8,24 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>Current Team Scores</h1>
-  <div class="teams-container">
-    <div class="team">
-      <h2>Team A: <span id="teamA"><%= scores.teamA %></span></h2>
-    </div>
-    <div class="team">
-      <h2>Team B: <span id="teamB"><%= scores.teamB %></span></h2>
-    </div>
-    <div class="team">
-      <h2>Team C: <span id="teamC"><%= scores.teamC %></span></h2>
-    </div>
+  <!-- Each div represents a team's score section -->
+  <div class="team team-a">
+    <div class="team-name">Team A</div>
+    <div class="team-score" id="teamA"><%= scores.teamA %></div>
+  </div>
+  <div class="team team-b">
+    <div class="team-name">Team B</div>
+    <div class="team-score" id="teamB"><%= scores.teamB %></div>
+  </div>
+  <div class="team team-c">
+    <div class="team-name">Team C</div>
+    <div class="team-score" id="teamC"><%= scores.teamC %></div>
   </div>
 
   <script>
     // Function to fetch the latest scores and update the DOM
     function fetchScores() {
-      fetch('/scores') // Endpoint to get the latest scores
+      fetch('/scores')
         .then(response => response.json())
         .then(data => {
           document.getElementById('teamA').innerText = data.teamA;
