@@ -41,3 +41,58 @@ body {
 .team-c {
   background-color: #28a745; /* Bright Green */
 }
+/* public/styles.css */
+
+/* General styles for the body */
+
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Team container styling */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Team name styling */
+.team-name {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Button container */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* General button styling */
+.btn {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+/* Styles for the plus button */
+.btn-plus {
+  background-color: #28a745; /* Green for + */
+}
+
+/* Styles for the minus button */
+.btn-minus {
+  background-color: #dc3545; /* Red for - */
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  opacity: 0.8;
+}
