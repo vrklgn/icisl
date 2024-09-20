@@ -31,15 +31,15 @@ body {
 
 /* Distinct colors for each team's section */
 .team-a {
-  background-color: #ff5733; /* Bright Orange-Red */
+  background-color: #FFD166; /* Bright Orange-Red */
 }
 
 .team-b {
-  background-color: #33c3ff; /* Bright Sky Blue */
+  background-color: #06D6A0; /* Bright Sky Blue */
 }
 
 .team-c {
-  background-color: #28a745; /* Bright Green */
+  background-color: #ECB6EF; /* Bright Green */
 }
 /* public/styles.css */
 
