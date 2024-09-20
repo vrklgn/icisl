@@ -18,7 +18,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px; /* Adds space between each team's section */
+  margin-bottom: 10px; /* Adds space between each team's section */
   width: 100%; /* Ensure full width */
   max-width: 600px; /* Optional max-width for better alignment */
   padding: 10px;
