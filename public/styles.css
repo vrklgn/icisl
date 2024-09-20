@@ -11,12 +11,22 @@ body {
 .team {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
+  text-align: center;
+}
+
+.team-name {
+  font-size: 2em;
+  margin-bottom: 10px; /* Space between the name and the score */
+  font-weight: bold;
+}
+
+.team-score {
   font-size: 3em;
   font-weight: bold;
-  text-align: center;
 }
 
 /* Distinct colors for each team's section */
