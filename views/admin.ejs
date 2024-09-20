@@ -8,29 +8,37 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>Update Team Scores</h1>
-  <div class="teams-container">
-    <!-- Team A -->
-    <div class="team">
-      <h2>Team A: <span id="score-teamA"><%= scores.teamA %></span></h2>
-      <button onclick="updateScore('teamA', 1)">+1</button>
-      <button onclick="updateScore('teamA', -1)">-1</button>
+  <h1>Admin - Update Team Scores</h1>
+
+  <!-- Team A -->
+  <div class="team-container">
+    <div class="team-name">Team A</div>
+    <div class="buttons">
+      <button class="btn btn-plus" onclick="updateScore('teamA', 1)">+1</button>
+      <button class="btn btn-minus" onclick="updateScore('teamA', -1)">-1</button>
     </div>
-    <!-- Team B -->
-    <div class="team">
-      <h2>Team B: <span id="score-teamB"><%= scores.teamB %></span></h2>
-      <button onclick="updateScore('teamB', 1)">+1</button>
-      <button onclick="updateScore('teamB', -1)">-1</button>
+  </div>
+
+  <!-- Team B -->
+  <div class="team-container">
+    <div class="team-name">Team B</div>
+    <div class="buttons">
+      <button class="btn btn-plus" onclick="updateScore('teamB', 1)">+1</button>
+      <button class="btn btn-minus" onclick="updateScore('teamB', -1)">-1</button>
     </div>
-    <!-- Team C -->
-    <div class="team">
-      <h2>Team C: <span id="score-teamC"><%= scores.teamC %></span></h2>
-      <button onclick="updateScore('teamC', 1)">+1</button>
-      <button onclick="updateScore('teamC', -1)">-1</button>
+  </div>
+
+  <!-- Team C -->
+  <div class="team-container">
+    <div class="team-name">Team C</div>
+    <div class="buttons">
+      <button class="btn btn-plus" onclick="updateScore('teamC', 1)">+1</button>
+      <button class="btn btn-minus" onclick="updateScore('teamC', -1)">-1</button>
     </div>
   </div>
 
   <script>
+    // Function to update scores by sending a POST request
     function updateScore(team, delta) {
       fetch('/update-score', {
         method: 'POST',
@@ -42,7 +50,7 @@
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          document.getElementById(`score-${team}`).innerText = data.newScore;
+          console.log(`Score updated: ${team} new score is ${data.newScore}`);
         } else {
           alert('Error updating score');
         }
