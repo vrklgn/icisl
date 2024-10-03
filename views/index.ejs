@@ -25,18 +25,6 @@
     <div class="team-score" id="teamC"><%= scores.teamC %></div>
   </div>
 
-  <script>
-    // Function to fetch the latest scores and update the DOM
-    function fetchScores() {
-      fetch('/scores')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('teamA').innerText = data.teamA;
-          document.getElementById('teamB').innerText = data.teamB;
-          document.getElementById('teamC').innerText = data.teamC;
-        })
-        .catch(error => console.error('Error fetching scores:', error));
-    }
 
 <script>
   // Function to fetch the latest scores and update the DOM with animation
