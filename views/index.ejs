@@ -38,8 +38,41 @@
         .catch(error => console.error('Error fetching scores:', error));
     }
 
-    // Fetch scores every 3 seconds
-    setInterval(fetchScores, 3000);
-  </script>
+<script>
+  // Function to fetch the latest scores and update the DOM with animation
+  function fetchScores() {
+    fetch('/scores')
+      .then(response => response.json())
+      .then(data => {
+        updateScoreWithAnimation('teamA', data.teamA);
+        updateScoreWithAnimation('teamB', data.teamB);
+        updateScoreWithAnimation('teamC', data.teamC);
+      })
+      .catch(error => console.error('Error fetching scores:', error));
+  }
+
+  // Function to update the score and trigger the bounce animation
+  function updateScoreWithAnimation(team, newScore) {
+    const scoreElement = document.getElementById(`score-${team}`);
+    
+    // Check if the score has changed
+    if (scoreElement.innerText != newScore) {
+      scoreElement.innerText = newScore;
+      
+      // Add the bounce class to trigger the animation
+      scoreElement.classList.add('bounce');
+
+      // Remove the bounce class after the animation completes
+      setTimeout(() => {
+        scoreElement.classList.remove('bounce');
+      }, 500); // Duration matches the animation duration (0.5s)
+    }
+  }
+
+  // Fetch scores every 5 seconds and update the DOM
+  setInterval(fetchScores, 3000);
+</script>
+
+
 </body>
 </html>
