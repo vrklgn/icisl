@@ -50,8 +50,6 @@
 
 body {
   margin: 0;
-  display: flex;
-  height: 100vh;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   overflow: hidden;
