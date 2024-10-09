@@ -32,6 +32,11 @@ body {
   overflow: hidden;
 }
 
+.teams {
+  display: flex;
+  flex: 1;
+}
+
 .team {
   flex: 1;
   display: flex;
