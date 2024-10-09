@@ -1,0 +1,123 @@
+
+/* public/styles.css */
+
+/* Bounce animation */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.score {
+  font-size: 2em;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Class to trigger the bounce animation */
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  overflow: hidden;
+}
+
+.team {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.team-name {
+  font-size: 2em;
+  margin-bottom: 10px; /* Space between the name and the score */
+  font-weight: bold;
+}
+
+.team-score {
+  font-size: 6em;
+  font-weight: bold;
+}
+
+/* Distinct colors for each team's section */
+.team-a {
+  background-color: #FFD166; /* Bright Orange-Red */
+}
+
+.team-b {
+  background-color: #06D6A0; /* Bright Sky Blue */
+}
+
+.team-c {
+  background-color: #ECB6EF; /* Bright Green */
+}
+/* public/styles.css */
+
+/* General styles for the body */
+
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Team container styling */
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Team name styling */
+.team-name {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Button container */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* General button styling */
+.btn {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+/* Styles for the plus button */
+.btn-plus {
+  background-color: #28a745; /* Green for + */
+}
+
+/* Styles for the minus button */
+.btn-minus {
+  background-color: #dc3545; /* Red for - */
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  opacity: 0.8;
+}
