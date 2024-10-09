@@ -29,6 +29,10 @@ app.get('/admin', (req, res) => {
   res.render('admin', { scores });
 });
 
+app.get('/presentation', (req, res) => {
+  res.render('presentation', { scores });
+});
+
 app.post('/update-score', (req, res) => {
   const { team, delta } = req.body;
 
