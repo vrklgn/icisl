@@ -43,6 +43,7 @@
 .teams {
   display: flex;
   flex: 1;
+  height: 20vh;
 }
 
 
