@@ -1,0 +1,66 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Scores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/presentation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Each div represents a team's score section -->
+  <div class="team team-a">
+    <div class="team-name">teamA</div>
+    <div class="team-score" id="teamA"><%= scores.teamA %></div>
+  </div>
+  <div class="team team-b">
+    <div class="team-name">teamB</div>
+    <div class="team-score" id="teamB"><%= scores.teamB %></div>
+  </div>
+  <div class="team team-c">
+    <div class="team-name">teamC</div>
+    <div class="team-score" id="teamC"><%= scores.teamC %></div>
+  </div>
+
+
+<script>
+  // Function to fetch the latest scores and update the DOM with animation
+  function fetchScores() {
+    fetch('/scores')
+      .then(response => response.json())
+      .then(data => {
+        updateScoreWithAnimation('teamA', data.teamA);
+        updateScoreWithAnimation('teamB', data.teamB);
+        updateScoreWithAnimation('teamC', data.teamC);
+      })
+      .catch(error => console.error('Error fetching scores:', error));
+  }
+
+  // Function to update the score and trigger the bounce animation
+  function updateScoreWithAnimation(team, newScore) {
+    const scoreElement = document.getElementById(`${team}`);
+    
+    // Check if the score has changed
+    if (scoreElement.innerText != newScore) {
+      scoreElement.innerText = newScore;
+      
+      // Add the bounce class to trigger the animation
+      scoreElement.classList.add('bounce');
+
+      // Remove the bounce class after the animation completes
+      setTimeout(() => {
+        scoreElement.classList.remove('bounce');
+      }, 500); // Duration matches the animation duration (0.5s)
+    }
+  }
+
+  // Fetch scores every 5 seconds and update the DOM
+  setInterval(fetchScores, 3000);
+</script>
+
+
+</body>
+</html>
