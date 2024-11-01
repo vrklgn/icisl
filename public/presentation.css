@@ -26,6 +26,7 @@
     display: flex;
     width: 100%;
     z-index: 100;
+  top: 80%;
 }
 
 .presentation-wrapper{
