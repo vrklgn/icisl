@@ -76,6 +76,7 @@ body {
 
 .team-name {
   font-size: 2em;
+  margin-top: 10px;
   margin-bottom: 10px; /* Space between the name and the score */
   font-weight: bold;
 }
