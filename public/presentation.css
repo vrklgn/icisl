@@ -21,6 +21,10 @@
   overflow: hidden;
 }
 
+.hover{
+  position: absolute;
+}
+
 .presentation-wrapper{
   position: relative;
   width: 100%;
