@@ -21,18 +21,11 @@
   overflow: hidden;
 }
 
-.hover{
-    position: absolute;
-    display: flex;
-    width: 100%;
-    z-index: 100;
-  top: 85%;
-}
 
 .presentation-wrapper{
   position: relative;
   width: 100%;
-  padding-top: 100vh; /* 16:9 aspect ratio (9 / 16 * 100%) */
+  padding-top: 85vh; /* 16:9 aspect ratio (9 / 16 * 100%) */
   overflow: hidden;
 }
 
