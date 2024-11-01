@@ -22,7 +22,10 @@
 }
 
 .hover{
-  position: absolute;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    z-index: 100;
 }
 
 .presentation-wrapper{
