@@ -10,10 +10,12 @@ const PORT = 8080; // Set the server to listen on port 8080
 // Middleware to parse incoming requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Enable CORS with specific origin
 app.use(
   cors({
-    origin: `https://app-aagbtkrekue.canva-apps.com`,
-    optionsSuccessStatus: 200,
+    origin: `https://app-aagbtkrekue.canva-apps.com`, // Specify allowed origin
+    optionsSuccessStatus: 200, // Optional: For compatibility with legacy browsers
   })
 );
 
